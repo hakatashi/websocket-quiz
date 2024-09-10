@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { connectAuthEmulator, getAuth, signInAnonymously } from "firebase/auth";
 import {
 	getFirestore,
 	connectFirestoreEmulator,
@@ -10,12 +11,17 @@ const firebaseConfig = await firebaseConfigResponse.json();
 
 const app = initializeApp(firebaseConfig);
 
+const auth = getAuth(app);
+
 const db = getFirestore(app);
 
 if (location.hostname === "localhost") {
 	connectFirestoreEmulator(db, "localhost", 8080);
+	connectAuthEmulator(auth, "http://localhost:9099");
 }
 
 const Quiz = collection(db, "quizzes");
 
-export { app as default, db, Quiz };
+await signInAnonymously(auth);
+
+export { app as default, auth, db, Quiz };

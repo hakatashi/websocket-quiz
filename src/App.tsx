@@ -3,7 +3,7 @@ import type { Component } from "solid-js";
 import logo from "./logo.svg";
 import styles from "./App.module.css";
 
-import { Quiz } from "./lib/firebase";
+import { Quiz, auth } from "./lib/firebase";
 import { addDoc } from "firebase/firestore";
 
 const App: Component = () => {
@@ -31,7 +31,7 @@ const App: Component = () => {
 			<header class={styles.header}>
 				<img src={logo} class={styles.logo} alt="logo" />
 				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
+					UID: {auth.currentUser?.uid}
 				</p>
 				<button type="button" onClick={handleClick}>Add Quiz</button>
 			</header>
