@@ -11,6 +11,11 @@ service cloud.firestore {
       allow read, write;
     }
 
+    match /quizzes/{quizId}/answers/{userId} {
+      allow read;
+      allow write: if request.auth.uid == userId;
+    }
+
     match /rooms/{quizId} {
       allow read, write;
     }

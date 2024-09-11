@@ -6,7 +6,7 @@ import {
 	collection,
 	CollectionReference,
 } from "firebase/firestore";
-import type { Quiz, Room } from "./schema";
+import type { Quiz, Room, User } from "./schema";
 
 const firebaseConfigResponse = await fetch("/__/firebase/init.json");
 const firebaseConfig = await firebaseConfigResponse.json();
@@ -24,7 +24,8 @@ if (location.hostname === "localhost") {
 
 const Quizzes = collection(db, "quizzes") as CollectionReference<Quiz>;
 const Rooms = collection(db, "rooms") as CollectionReference<Room>;
+const Users = collection(db, "users") as CollectionReference<User>;
 
 await signInAnonymously(auth);
 
-export { app as default, auth, db, Quizzes, Rooms };
+export { app as default, auth, db, Quizzes, Rooms, Users };

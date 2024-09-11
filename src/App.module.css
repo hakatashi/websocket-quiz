@@ -1,14 +1,5 @@
 .App {
   text-align: center;
-}
-
-.logo {
-  animation: logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -17,6 +8,21 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+button.choice {
+  width: 40%;
+  background-color: transparent;
+  color: #61dafb;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: none;
+}
+
+button.choice.active {
+  background-color: #61dafb;
+  color: #282c34;
 }
 
 .link {
