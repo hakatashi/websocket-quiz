@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "firebase": "^10.13.1",
+    "solid-firebase": "^0.3.0",
     "solid-js": "^1.8.11"
   }
 }

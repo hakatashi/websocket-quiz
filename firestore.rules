@@ -10,5 +10,9 @@ service cloud.firestore {
     match /quizzes/{quizId} {
       allow read, write;
     }
+
+    match /rooms/{quizId} {
+      allow read, write;
+    }
   }
 }

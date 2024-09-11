@@ -4,7 +4,9 @@ import {
 	getFirestore,
 	connectFirestoreEmulator,
 	collection,
+	CollectionReference,
 } from "firebase/firestore";
+import type { Quiz, Room } from "./schema";
 
 const firebaseConfigResponse = await fetch("/__/firebase/init.json");
 const firebaseConfig = await firebaseConfigResponse.json();
@@ -20,8 +22,9 @@ if (location.hostname === "localhost") {
 	connectAuthEmulator(auth, "http://localhost:9099");
 }
 
-const Quiz = collection(db, "quizzes");
+const Quizzes = collection(db, "quizzes") as CollectionReference<Quiz>;
+const Rooms = collection(db, "rooms") as CollectionReference<Room>;
 
 await signInAnonymously(auth);
 
-export { app as default, auth, db, Quiz };
+export { app as default, auth, db, Quizzes, Rooms };
