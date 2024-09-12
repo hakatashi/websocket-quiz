@@ -2,7 +2,7 @@
 import { render } from "solid-js/web";
 
 import "./index.css";
-import App from "./App";
+import UserApp from "./App";
 import { FirebaseProvider } from "solid-firebase";
 import app from "./lib/firebase";
 
@@ -17,7 +17,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 render(
 	() => (
 		<FirebaseProvider app={app}>
-			<App />
+			<UserApp />
 		</FirebaseProvider>
 	),
 	root!,

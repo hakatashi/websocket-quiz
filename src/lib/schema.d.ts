@@ -13,6 +13,7 @@ export interface Quiz extends DocumentData {
 	comment: string;
 	index: number;
 	scoreRatio: [number, number] | null;
+	finished: boolean;
 }
 
 export interface QuizAnswer extends DocumentData {
