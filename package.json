@@ -9,7 +9,8 @@
     "watch": "vite build --watch",
     "serve": "vite preview",
     "emulate": "firebase emulators:start --only firestore,hosting,auth",
-    "format": "biome format --fix"
+    "format": "biome format --fix",
+    "deploy": "firebase deploy"
   },
   "license": "MIT",
   "devDependencies": {

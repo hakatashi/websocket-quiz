@@ -1,39 +1,124 @@
 .App {
-  text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	text-align: center;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 button.choice {
-  width: 40%;
-  background-color: transparent;
-  color: #61dafb;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: none;
+	width: 40%;
+	background-color: transparent;
+	color: #61dafb;
+	font-size: 1em;
+	margin: 1em;
+	padding: 0.25em 1em;
+	border: none;
 }
 
 button.choice.active {
-  background-color: #61dafb;
-  color: #282c34;
+	background-color: #61dafb;
+	color: #282c34;
 }
 
 .link {
-  color: #b318f0;
+	color: #b318f0;
+}
+
+.admin {
+	width: 100vw;
+	height: 100vh;
+}
+
+.admin_game_switcher {
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: row;
+}
+
+ul.users {
+	flex: 0 0 30%;
+	font-size: 3vw;
+
+	margin: 0;
+	padding: 0;
+	border-right: 1px solid #333;
+}
+
+li.user {
+	list-style-type: none;
+	border-bottom: 1px solid #333;
+
+	height: 1.5em;
+	line-height: 1.5em;
+
+	display: flex;
+	flex-direction: row;
+}
+
+li.user.parent {
+	background-color: transparent !important;
+}
+
+li.user.answered {
+	background-color: #61dafb;
+}
+
+li.user.answered.correct {
+	background-color: #53ffa0;
+}
+
+li.user.answered.incorrect {
+	background-color: #ff9a9a;
+}
+
+li.user .user_name {
+	flex: 0 0 70%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+li.user .user_score {
+	flex: 0 0 15%;
+}
+
+li.user .user_answer {
+	flex: 0 0 15%;
+}
+
+.admin .game {
+	font-size: 3vw;
+	overflow-x: auto;
+}
+
+.admin .game p {
+	margin: 0;
+}
+
+.admin .game .show_result {
+	font-size: inherit;
+	width: 100%;
+}
+
+.admin .game input.slider {
+	width: 100%;
+}
+
+.admin .game .answer {
+	font-size: 6vw;
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
