@@ -2,7 +2,8 @@
 import { render } from "solid-js/web";
 
 import "./index.css";
-import UserApp from "./App";
+import "solid-devtools";
+import App from "./App";
 import { FirebaseProvider } from "solid-firebase";
 import app from "./lib/firebase";
 

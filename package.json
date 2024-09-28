@@ -2,9 +2,10 @@
   "name": "vite-template-solid",
   "version": "0.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "start": "vite",
-    "dev": "concurrently \"npm run watch\" \"npm run emulate\"",
+    "dev": "concurrently \"npm run start\" \"npm run emulate\"",
     "build": "vite build",
     "watch": "vite build --watch",
     "serve": "vite preview",
@@ -16,7 +17,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "concurrently": "^9.0.0",
-    "solid-devtools": "^0.29.2",
+    "solid-devtools": "^0.29.3",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
     "vite-plugin-solid": "^2.8.2"

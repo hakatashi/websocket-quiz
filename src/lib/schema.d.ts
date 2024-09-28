@@ -1,4 +1,4 @@
-import type { DocumentData, FirestoreError } from "firebase/firestore";
+import type { DocumentData, DocumentReference, FirestoreError, Timestamp } from "firebase/firestore";
 
 export interface UseFireStoreReturn<T> {
 	data: T;
@@ -6,25 +6,20 @@ export interface UseFireStoreReturn<T> {
 	error: FirestoreError | null;
 }
 
-export interface Quiz extends DocumentData {
-	room: string;
-	question: string;
-	correct: boolean;
-	comment: string;
-	index: number;
-	scoreRatio: [number, number] | null;
-	finished: boolean;
+export interface User extends DocumentData {
+	uid: string;
+	displayName: string | null;
 }
 
-export interface QuizAnswer extends DocumentData {
-	user: string;
-	answer: boolean;
-}
-
-export interface Room extends DocumentData {
+export interface Game extends DocumentData {
+	id: string;
 	name: string;
-	owner: string;
-	index: number;
+}
+
+export interface Match extends DocumentData {
+	game: DocumentReference<Game>;
+	createdAt: Timestamp;
+	players: DocumentReference<User>[];
 }
 
 export interface User extends DocumentData {
