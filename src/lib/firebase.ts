@@ -5,14 +5,10 @@ import {
 	connectFirestoreEmulator,
 	collection,
 	CollectionReference,
-	doc,
-	getDoc,
-	setDoc,
 } from "firebase/firestore";
-import type { Game, Match, User } from "./schema";
+import type { Quiz, Room, User } from "./schema";
 
-// const firebaseConfigResponse = await fetch("/__/firebase/init.json");
-const firebaseConfigResponse = await fetch("http://localhost:5000/__/firebase/init.json");
+const firebaseConfigResponse = await fetch("/__/firebase/init.json");
 const firebaseConfig = await firebaseConfigResponse.json();
 
 const app = initializeApp(firebaseConfig);
@@ -26,19 +22,10 @@ if (location.hostname === "localhost") {
 	connectAuthEmulator(auth, "http://localhost:9099");
 }
 
+const Quizzes = collection(db, "quizzes") as CollectionReference<Quiz>;
+const Rooms = collection(db, "rooms") as CollectionReference<Room>;
 const Users = collection(db, "users") as CollectionReference<User>;
-const Games = collection(db, "games") as CollectionReference<Game>;
-const Matches = collection(db, "matches") as CollectionReference<Match>;
 
-await signInAnonymously(auth).then(async (userCredential) => {
-	const userRef = doc(Users, userCredential.user.uid);
-	const user = await getDoc(userRef);
-	if (!user.exists()) {
-		await setDoc(userRef, {
-			uid: userCredential.user.uid,
-			displayName: null,
-		});
-	}
-});
+await signInAnonymously(auth);
 
-export { app as default, auth, db, Games, Matches, Users };
+export { app as default, auth, db, Quizzes, Rooms, Users };
